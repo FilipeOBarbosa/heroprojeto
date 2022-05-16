@@ -1,0 +1,42 @@
+
+
+.Home-header {
+    min-height: 100vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    background-image: url("../../images/chance.png");
+  }
+
+  .Home h1{
+    position: absolute;
+    color: aliceblue;
+    text-shadow: 2px;
+    font-size: 3.5rem;
+    top: 40%;
+    text-shadow: #000 2px 2px 2px;
+    font-family:"Trebuchet MS", Helvetica, sans-serif;
+  }
+
+.Home p{
+  position:absolute;
+  top: 55%;
+align-items: center;
+  padding: 0px;
+  color:#fff;
+  text-shadow: #000 2px 2px 2px;
+  font-family:"Trebuchet MS", Helvetica, sans-serif;
+  text-align: justify;
+}
+
+.Home Footer{
+    position: fixed;
+    bottom: 1%;
+    left: 35%;
+    text-shadow: #000 2px 2px 2px;
+    font-family:cursive;
+    font-size: 12px;
+  }
