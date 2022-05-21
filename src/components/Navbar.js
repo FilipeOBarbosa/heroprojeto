@@ -12,12 +12,16 @@ function Navbar(props){
       
           <div className="collapse navbar-collapse" id="navbarColor03">
             <ul className="navbar-nav">
-              <NavbarItem href='/' label='Login'></NavbarItem>
+                <NavbarItem href='/Home' label='Home'></NavbarItem>
+                <NavbarItem href='/' label='Login'></NavbarItem>
                 <NavbarItem href='/CriarHeroi' label='Criar Heroi'></NavbarItem>
                 <NavbarItem href='/Weapon' label='Criar Arma'></NavbarItem>
                 <NavbarItem href='/HeroUpdate' label='Mudar heroi'></NavbarItem>
+                <NavbarItem href='/WeaponUpdate' label='Mudar Arma'></NavbarItem>
+                <NavbarItem href='/HeroDelete' label='Excluir heroi'></NavbarItem>
                 <NavbarItem href='/WeaponDelete' label='Excluir Arma'></NavbarItem>
-                <NavbarItem href='/Home' label='Home'></NavbarItem>
+                <NavbarItem href='/HeroFind' label='Herois'></NavbarItem>
+                <NavbarItem href='/WeaponFind' label='Armas'></NavbarItem>
             </ul>
           </div>
         </div>

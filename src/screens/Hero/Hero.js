@@ -6,6 +6,7 @@ import Footer from "../../components/FooterComponent"
 import videoplayer from "../.././video/Armor.mp4";
 import 'bootswatch/dist/lux/bootstrap.css';
 import FormGroup from '../../components/FormGroup';
+import axios from 'axios';
 
 
 
@@ -14,12 +15,27 @@ export default class Hero extends React.Component{
   state={
     nome:'',
     classe:'',
-    level:''
+    level: 0
   }
 
-  clicou=() =>{
+  clicou= async() =>{
+    await axios.post('http://localhost:8080/api/hero',{
+      name: this.state.nome,
+      characterClass: this.state.classe,
+      level: parseInt(this.state.level),
+      weapon: null
+
+    }).then(response =>{
+      console.log(response)
+    }).catch(error =>{
+      console.log(error.response)
+    });
+
+    console.log("request finished");
+
     alert("Seu Heroi se chama "+this.state.nome+
     ", sua classe: "+this.state.classe+", seu level: "+this.state.level)
+
   }
 
   render(){
@@ -55,7 +71,7 @@ export default class Hero extends React.Component{
               <input type='level' className='form-control' id='inputLevel'
               placeholder='Digite seu level' value={this.state.level} onChange={(e) => this.setState({level: e.target.value})}></input>
             </FormGroup>
-            <button type="button" class="btn btn-primary" onClick={this.clicou}>INICIAR</button>
+            <button type="button" className="btn btn-primary" onClick={this.clicou}>INICIAR</button>
           </fieldset>
           <Footer/>
         </header> 

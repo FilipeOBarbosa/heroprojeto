@@ -3,13 +3,21 @@ import'bootswatch/dist/lux/bootstrap.css';
 import "./WeaponDelete.css";
 import FormGroup from '../../components/FormGroup';
 import Footer from '../../components/FooterComponent';
+import axios from 'axios';
 
 export default class WeaponDelete extends React.Component{
 
     state={
-         id:""
+         id:0
       }
-      clicou=() =>{
+      clicou= async() =>{
+        await axios.delete(`http://localhost:8080/api/weapon/${this.state.id}`,{
+        }).then(response =>{
+          console.log(response)
+        }).catch(error =>{
+          console.log(error.response)
+        });
+        console.log("request finished");
         alert("essa arma foi excluida da sua bolsa: "+this.state.id)
       }
 
@@ -26,7 +34,7 @@ export default class WeaponDelete extends React.Component{
                 placeholder='Digite o id/nome da arma' value={this.state.id} onChange={(e) => this.setState({id: e.target.value})}></input>
                 </FormGroup>
                 <br></br>
-                <button type="button" class="btn btn-primary" onClick={this.clicou}>LARGAR</button>
+                <button type="button" className="btn btn-primary" onClick={this.clicou}>LARGAR</button>
         </fieldset>
           <Footer/>
             </header>

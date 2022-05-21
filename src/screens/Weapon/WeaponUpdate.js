@@ -1,18 +1,16 @@
 import React from 'react';
 import'bootswatch/dist/lux/bootstrap.css';
-import "./HeroUpdate.css";
+import "./WeaponUpdate.css";
 import FormGroup from '../../components/FormGroup';
 import Footer from '../../components/FooterComponent';
 import Progressbar from '../../components/ProgressBar';
 import axios from 'axios';
 
-export default class HeroUpdate extends React.Component{
+export default class WeaponUpdate extends React.Component{
 
     state={
         id:0,
-        nome:'',
-        classe:'',
-        level:0
+        nome:''
       }
 
       twoFuncion=() =>{
@@ -20,10 +18,8 @@ export default class HeroUpdate extends React.Component{
           this._onButtonClick();
       }
       clicou=async() =>{
-        await axios.put(`http://localhost:8080/api/hero/${this.state.id}`,{
+        await axios.put(`http://localhost:8080/api/weapon/${this.state.id}`,{
           name: this.state.nome,
-          characterClass: this.state.classe,
-          level: parseInt(this.state.level),
     
         }).then(response =>{
           console.log(response)
@@ -32,8 +28,7 @@ export default class HeroUpdate extends React.Component{
         });
 
         console.log("request finished");
-        alert("Seu Heroi agora se chama "+this.state.nome+
-        ", sua nova classe: "+this.state.classe+", seu level: "+this.state.level)
+        alert("SSua weapon agora se chama "+this.state.nome)
       }
 
       constructor(props) {
@@ -52,12 +47,12 @@ export default class HeroUpdate extends React.Component{
 
     render(){
         return ( 
-        <div className="HeroUpdate">
-            <header className="HeroUpdate-header">
-                <h1>Aqui você muda seu heroi</h1>
+        <div className="WeaponUpdate">
+            <header className="WeaponUpdate-header">
+                <h1>Aqui você muda sua Arma</h1>
     
                 <fieldset>
-            <legend>Informações do herói</legend>
+            <legend>Informações da Arma</legend>
             <FormGroup label ="Id">
               <input type='id' className='form-control' id='inputId'
               placeholder='Digite seu id' value={this.state.id} onChange={(e) => this.setState({id: e.target.value})}></input>
@@ -65,14 +60,6 @@ export default class HeroUpdate extends React.Component{
             <FormGroup label ="Nome">
               <input type='nome' className='form-control' id='inputName'
               placeholder='Digite seu nome' value={this.state.nome} onChange={(e) => this.setState({nome: e.target.value})}></input>
-            </FormGroup>
-            <FormGroup label ="Classe">
-              <input type='classe' className='form-control' id='inputClasse'
-              placeholder='Digite sua classe' value={this.state.classe} onChange={(e) => this.setState({classe: e.target.value})}></input>
-            </FormGroup>
-            <FormGroup label ="Level">
-              <input type='level' className='form-control' id='inputLevel'
-              placeholder='Digite seu level' value={this.state.level} onChange={(e) => this.setState({level: e.target.value})}></input>
             </FormGroup>
             <button type="button" className="btn btn-primary" onClick={this.twoFuncion}>MUDAR </button>
             {this.state.showComponent ?

@@ -1,8 +1,8 @@
-.HeroUpdate {
+.WeaponUpdate {
     text-align:center;
   }
   
-  .HeroUpdate Footer{
+  .WeaponUpdate Footer{
     position: fixed;
     bottom: 1%;
     left: 35%;
@@ -11,7 +11,7 @@
     font-size: 12px;
   }
   
-  .HeroUpdate-header {
+  .WeaponUpdate-header {
     min-height: 100vh;
     display:flex;
     flex-direction: column;
@@ -19,10 +19,10 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
-    background-image: url("../../images/chance.png");
+    background-image: url("../../images/chanceW.png");
   }
 
-  .HeroUpdate h1{
+  .WeaponUpdate h1{
     position: absolute;
     top: 20%;
     left: 25%;

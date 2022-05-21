@@ -4,7 +4,8 @@ import FormGroup from '../../components/FormGroup';
 import 'bootswatch/dist/lux/bootstrap.css';
 import Footer from "../../components/FooterComponent"
 import video from "../.././video/WeaponBackground.mp4";
-import Video from "../../components/videoComponent"
+import Video from "../../components/videoComponent";
+import axios from 'axios';
 
 export default class Weapon extends React.Component{
 
@@ -12,7 +13,17 @@ export default class Weapon extends React.Component{
     nome:''
   }
 
-  clicou=() =>{
+  clicou= async() =>{
+    await axios.post('http://localhost:8080/api/weapon',{
+      name: this.state.nome,
+
+    }).then(response =>{
+      console.log(response)
+    }).catch(error =>{
+      console.log(error.response)
+    });
+
+    console.log("request finished");
     alert("Sua arma se chama "+this.state.nome)
   }
     render(){
